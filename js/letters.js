@@ -35,16 +35,14 @@ var counter = {
 };
 
 function countLetters(counter, sample_text) {
-  // debugger;
-  var sample_text = sample_text.toLowerCase();
   if (sample_text === "") {
     return;
   }
-  if (!counter.hasOwnProperty(sample_text[0])) {
+  if (!counter.hasOwnProperty(sample_text[0].toLowerCase())) {
     return countLetters(counter, sample_text.substring(1));
   }
 
-  counter[sample_text[0]]++;
+  counter[sample_text[0].toLowerCase()]++;
 
   return countLetters(counter, sample_text.substring(1));
 }
