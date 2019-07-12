@@ -35,6 +35,7 @@ var counter = {
 };
 
 function countLetters(counter, sample_text) {
+  // debugger;
   var sample_text = sample_text.toLowerCase();
   if (sample_text === "") {
     return;
@@ -42,11 +43,8 @@ function countLetters(counter, sample_text) {
   if (!counter.hasOwnProperty(sample_text[0])) {
     return countLetters(counter, sample_text.substring(1));
   }
-  for (key in counter) {
-    if (key == sample_text[0]) {
-      counter[key]++;
-    }
-  }
+
+  counter[sample_text[0]]++;
 
   return countLetters(counter, sample_text.substring(1));
 }
